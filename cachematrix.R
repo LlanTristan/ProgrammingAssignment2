@@ -25,15 +25,15 @@ makeCacheMatrix <- function(M = matrix()) {
 ## that is returned, if not then the inverse is calculated and returned. 
 cacheSolve <- function(M, ...) {
   ## Return a matrix that is the inverse of 'x'
-  ## If inverse is cached return that, if not calculate it.
-  
+
   invM <- M$getInv()
   if(!is.null(invM)){
     message("Getting cached inverse.")
     return(invM)
   }
   
-  mat = M$get()
+  mat <- M$get()
+  message("Calculating inverse.")
   invM <- solve(mat)
   M$setInv(invM)
   invM
